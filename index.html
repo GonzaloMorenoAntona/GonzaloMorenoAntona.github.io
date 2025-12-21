@@ -61,22 +61,27 @@
             font-family: monospace;
             min-height: 1.5em; /* Evita saltos */
         }
+        
+        /* CORRECCIÓN DE LA FOTO */
         .profile-img-container {
             width: 280px;
             height: 280px;
             border-radius: 50%;
             border: 4px solid var(--accent-cyan);
             box-shadow: 0 0 30px var(--accent-glow);
-            overflow: hidden;
+            overflow: hidden; /* Esto recorta lo que sobra */
             margin: 0 auto;
             background-color: #333;
+            position: relative;
         }
+        
         .profile-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Ajuste fino para centrar la cara si es necesario */
-            object-position: center top; 
+            /* TRUCO: Hacemos zoom (1.6) para sacar el marco negro fuera del círculo */
+            transform: scale(1.6); 
+            object-position: center center; 
         }
 
         /* Cards (Proyectos y Skills) */
@@ -182,7 +187,7 @@
                 </div>
                 <div class="col-lg-5 mb-5 mb-lg-0" data-aos="zoom-in">
                     <div class="profile-img-container">
-                        <img src="FotoOrla.jpg" alt="Gonzalo Moreno Antona" class="profile-img">
+                        <img src="perfil-gonzalo.jpg" alt="Gonzalo Moreno" class="profile-img">
                     </div>
                 </div>
             </div>
@@ -244,13 +249,13 @@
                             <small class="text-muted">Adaptación a entornos multiculturales, trabajo en equipo en inglés y metodologías ágiles.</small>
                         </div>
                         <div class="timeline-item">
-                            <span class="text-cyan fw-bold">2022 - Actualidad</span>
+                            <span class="text-cyan fw-bold">2020 - Actualidad</span>
                             <h4 class="mt-2">Grado en Ingeniería Informática</h4>
                             <p class="text-secondary mb-0">Universidad de Castilla-La Mancha (UCLM)</p>
                             <small class="text-muted">Especialidad en Tecnologías de la Información (TI). Desarrollo Web Full Stack y Redes.</small>
                         </div>
                         <div class="timeline-item">
-                            <span class="text-secondary">2020 - 2022</span>
+                            <span class="text-secondary">Anterior</span>
                             <h5 class="mt-2">Bachillerato Científico-Tecnológico</h5>
                             <p class="text-secondary">I.E.S. Torreón del Alcázar</p>
                         </div>
@@ -295,7 +300,7 @@
                             <span class="badge bg-info text-dark" style="font-size: 0.7rem;">En Proceso</span>
                         </div>
                         <p class="text-secondary small">
-                            Consultoría y rediseño web completo para una asociación real.
+                            Consultoría y rediseño web completo para una asociación real. Mejora de UX/UI y migración tecnológica.
                         </p>
                         <div class="mt-auto">
                             <span class="project-badge">HTML5/CSS3</span>
@@ -322,7 +327,7 @@
 
     <footer class="py-5 text-center">
         <div class="container">
-            <h2 class="mb-4">Contacta conmigo.</h2>
+            <h2 class="mb-4">¿Hablamos?</h2>
             <p class="text-secondary mb-4">Estoy disponible para nuevas oportunidades y retos tecnológicos.</p>
             <div class="d-flex justify-content-center gap-4 mb-5">
                 <a href="mailto:gmorenoantona@gmail.com" class="text-white fs-2"><i class="fas fa-envelope"></i></a>
@@ -342,38 +347,4 @@
         });
 
         // Efecto de escritura tipo máquina de escribir
-        const textElement = document.getElementById('typing-text');
-        const texts = ["Ingeniero de Software.", "Especialista TI.", "Full Stack Developer.", "Gonzalo Moreno."];
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentText = texts[textIndex];
-            
-            if (isDeleting) {
-                textElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                textElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === currentText.length) {
-                typeSpeed = 2000; // Pausa al terminar de escribir
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % texts.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        document.addEventListener('DOMContentLoaded', type);
-    </script>
-</body>
-</html>
+        const textElement = document
