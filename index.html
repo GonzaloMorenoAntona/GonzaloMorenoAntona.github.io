@@ -170,23 +170,23 @@
             font-size: 0.95rem;
         }
 
-        /* --- PROYECTOS VISUALES (NUEVO CSS - IMAGEN COMPLETA) --- */
+        /* --- PROYECTOS VISUALES (HORIZONTAL) --- */
         .project-img-wrapper {
-            /* Márgenes negativos para que la imagen toque los bordes de la tarjeta */
-            margin: -2rem -2rem 2rem -2rem; 
+            /* Ajustes para tarjeta horizontal */
+            width: 100%;
+            border-radius: 8px;
             overflow: hidden;
-            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             background-color: #2a3a50;
-            /* Ya NO hay altura fija, se adapta a la imagen */
         }
         .project-img {
             width: 100%;
-            height: auto; /* La altura es automática para no deformar */
-            display: block; /* Elimina espacios extraños debajo de la imagen */
+            height: auto; /* Mantiene la proporción original */
+            display: block;
             transition: transform 0.5s ease;
         }
         .tech-card:hover .project-img {
-            transform: scale(1.05); /* Un zoom más sutil al pasar el ratón */
+            transform: scale(1.05); 
         }
         .project-badge {
             background: rgba(6, 182, 212, 0.1);
@@ -445,76 +445,103 @@
         <div class="container py-5">
             <h2 class="section-title">Proyectos <span class="text-cyan">Destacados</span></h2>
             
-            <div class="row g-5"> <div class="col-12" data-aos="fade-up">
-                    <div class="tech-card border-cyan">
-                        <div class="project-img-wrapper">
-                            <img src="proy-gramola.jpg" alt="La Gramola" class="project-img" onerror="this.src='https://via.placeholder.com/1200x500/06b6d4/ffffff?text=Captura+de+La+Gramola'">
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h3 class="h4 mb-0 text-white"><i class="fas fa-music text-cyan me-2"></i> La Gramola</h3>
-                            <span class="badge bg-warning text-dark">En Desarrollo</span>
-                        </div>
-                        <p class="text-secondary">
-                            Plataforma web para gestión musical en establecimientos comerciales. Permite a los usuarios interactuar con la música del local mediante pagos seguros y colas de reproducción.
-                        </p>
-                        <div class="mt-3">
-                            <span class="project-badge">Java Spring Boot</span>
-                            <span class="project-badge">Angular</span>
-                            <span class="project-badge">Stripe / OAuth</span>
+            <div class="row g-4">
+                
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="tech-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-5 mb-4 mb-md-0">
+                                <div class="project-img-wrapper">
+                                    <img src="proy-gramola.jpg" alt="La Gramola" class="project-img" onerror="this.src='https://via.placeholder.com/800x500/06b6d4/ffffff?text=Captura+La+Gramola'">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h3 class="h4 mb-0 text-white"><i class="fas fa-music text-cyan me-2"></i> La Gramola</h3>
+                                    <span class="badge bg-warning text-dark">En Desarrollo</span>
+                                </div>
+                                <p class="text-secondary">
+                                    Plataforma web para gestión musical en establecimientos comerciales. Permite a los usuarios interactuar con la música del local mediante pagos seguros y colas de reproducción.
+                                </p>
+                                <div class="mt-3">
+                                    <span class="project-badge">Java Spring Boot</span>
+                                    <span class="project-badge">Angular</span>
+                                    <span class="project-badge">Stripe / OAuth</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
                     <div class="tech-card">
-                         <div class="project-img-wrapper">
-                            <img src="proy-iker.jpg" alt="Web Asociación Iker" class="project-img" onerror="this.src='https://via.placeholder.com/1200x500/3b82f6/ffffff?text=Web+Asociacion+WordPress'">
-                        </div>
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h4 class="h5 mb-0 text-white">Web Asociación Iker</h4>
-                            <span class="badge bg-info text-dark" style="font-size: 0.7rem;">En Proceso</span>
-                        </div>
-                        <p class="text-secondary small">
-                            Implantación y personalización de sitio web con <strong>WordPress</strong>. Configuración de plugins y CMS para una asociación real.
-                        </p>
-                        <div class="mt-3">
-                            <span class="project-badge">WordPress</span>
-                            <span class="project-badge">CMS / Plugins</span>
+                        <div class="row align-items-center">
+                            <div class="col-md-5 mb-4 mb-md-0">
+                                <div class="project-img-wrapper">
+                                    <img src="proy-iker.jpg" alt="Web Iker" class="project-img" onerror="this.src='https://via.placeholder.com/800x500/3b82f6/ffffff?text=Web+Asociacion'">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <h4 class="h5 mb-0 text-white">Web Asociación Iker</h4>
+                                    <span class="badge bg-info text-dark" style="font-size: 0.7rem;">En Proceso</span>
+                                </div>
+                                <p class="text-secondary">
+                                    Implantación y personalización de sitio web con <strong>WordPress</strong>. Configuración de plugins y CMS para una asociación real.
+                                </p>
+                                <div class="mt-3">
+                                    <span class="project-badge">WordPress</span>
+                                    <span class="project-badge">CMS / Plugins</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="tech-card">
-                         <div class="project-img-wrapper">
-                            <img src="proy-player.jpg" alt="Reproductor Web" class="project-img" onerror="this.src='https://via.placeholder.com/1200x500/10b981/ffffff?text=Reproductor+Multimedia+Web'">
-                        </div>
-                        <h4 class="h5 mb-3 text-white">Reproductor Multimedia Web</h4>
-                        <p class="text-secondary small">
-                            Aplicación web interactiva (SPA) para la gestión y reproducción de contenido multimedia. Interfaz moderna y responsive.
-                        </p>
-                        <div class="mt-3">
-                            <span class="project-badge">Angular</span>
-                            <span class="project-badge">TypeScript</span>
+                        <div class="row align-items-center">
+                            <div class="col-md-5 mb-4 mb-md-0">
+                                <div class="project-img-wrapper">
+                                    <img src="proy-player.jpg" alt="Reproductor" class="project-img" onerror="this.src='https://via.placeholder.com/800x500/10b981/ffffff?text=Reproductor+Web'">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <h4 class="h5 mb-3 text-white">Reproductor Multimedia Web</h4>
+                                <p class="text-secondary">
+                                    Aplicación web interactiva (SPA) para la gestión y reproducción de contenido multimedia. Interfaz moderna y responsive.
+                                </p>
+                                <div class="mt-3">
+                                    <span class="project-badge">Angular</span>
+                                    <span class="project-badge">TypeScript</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
                     <div class="tech-card">
-                         <div class="project-img-wrapper">
-                            <img src="proy-portfolio.jpg" alt="Porfolio Personal" class="project-img" onerror="this.src='https://via.placeholder.com/1200x500/6366f1/ffffff?text=Mi+Porfolio+Personal'">
-                        </div>
-                        <h4 class="h5 mb-3 text-white">Porfolio Web Personal</h4>
-                        <p class="text-secondary small">
-                            Diseño y desarrollo de identidad digital profesional. Implementación de buenas prácticas de SEO, accesibilidad y despliegue automatizado en GitHub Pages.
-                        </p>
-                        <div class="mt-3">
-                            <span class="project-badge">HTML5 / Bootstrap</span>
-                            <span class="project-badge">GitHub Pages</span>
+                        <div class="row align-items-center">
+                            <div class="col-md-5 mb-4 mb-md-0">
+                                <div class="project-img-wrapper">
+                                    <img src="proy-portfolio.jpg" alt="Porfolio" class="project-img" onerror="this.src='https://via.placeholder.com/800x500/6366f1/ffffff?text=Mi+Porfolio'">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <h4 class="h5 mb-3 text-white">Porfolio Web Personal</h4>
+                                <p class="text-secondary">
+                                    Diseño y desarrollo de identidad digital profesional. Implementación de buenas prácticas de SEO, accesibilidad y despliegue automatizado.
+                                </p>
+                                <div class="mt-3">
+                                    <span class="project-badge">HTML5 / Bootstrap</span>
+                                    <span class="project-badge">GitHub Pages</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
