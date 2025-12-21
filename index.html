@@ -91,6 +91,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            overflow: hidden; /* IMPORTANTE: Para que la imagen no se salga al hacer zoom */
         }
         .tech-card:hover {
             transform: translateY(-5px);
@@ -169,7 +170,23 @@
             font-size: 0.95rem;
         }
 
-        /* --- PROYECTOS --- */
+        /* --- PROYECTOS VISUALES (NUEVO CSS) --- */
+        .project-img-wrapper {
+            margin: -2rem -2rem 1.5rem -2rem; /* Negativos para llegar al borde */
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            background-color: #333; 
+        }
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .tech-card:hover .project-img {
+            transform: scale(1.1); /* Efecto zoom */
+        }
         .project-badge {
             background: rgba(6, 182, 212, 0.1);
             color: var(--accent-cyan);
@@ -257,7 +274,7 @@
                 <div class="col-lg-6 mb-5" data-aos="fade-up">
                     <h2 class="section-title">Sobre <span class="text-cyan">Mí</span></h2>
                     <p class="text-secondary text-justify mb-4">
-                        Soy un estudiante de último año de Ingeniería Informática apasionado por resolver problemas complejos mediante la tecnología. Busco crear sistemas eficientes, seguros y que aporten valor real.
+                        Soy un estudiante de último año de Ingeniería Informática apasionado por resolver problemas complejos mediante la tecnología. Mi enfoque va más allá del código: busco crear sistemas eficientes, seguros y que aporten valor real.
                     </p>
                     <p class="text-secondary text-justify mb-4">
                         Durante mi estancia Erasmus+ en Polonia, no solo perfeccioné mi inglés técnico, sino que desarrollé una gran capacidad para trabajar en entornos internacionales y adaptarme a metodologías ágiles cambiantes.
@@ -270,12 +287,12 @@
                         <div class="progress"><div class="progress-bar" style="width: 100%"></div></div>
                     </div>
                     <div class="skill-bar-container">
-                        <div class="skill-title"><span>Inglés (Fluidez Demostrada en Erasmus+)</span> <span>B1 / B2</span></div>
-                        <div class="progress"><div class="progress-bar" style="width: 70%"></div></div>
+                        <div class="skill-title"><span>Inglés (Fluidez Profesional)</span> <span>B2 / C1</span></div>
+                        <div class="progress"><div class="progress-bar" style="width: 85%"></div></div>
                     </div>
                     <div class="skill-bar-container">
                         <div class="skill-title"><span>Francés</span> <span>B1</span></div>
-                        <div class="progress"><div class="progress-bar" style="width: 30%"></div></div>
+                        <div class="progress"><div class="progress-bar" style="width: 40%"></div></div>
                     </div>
                 </div>
 
@@ -311,7 +328,7 @@
                         <i class="fas fa-rocket fa-2x text-cyan"></i>
                         <div>
                             <h5 class="mb-1 text-white">Proactividad</h5>
-                            <small class="text-secondary">Iniciativa constante para aprender nuevas herramientas por mi cuenta.</small>
+                            <small class="text-secondary">Iniciativa constante para aprender nuevas herramientas (Docker, Kali Linux) por mi cuenta.</small>
                         </div>
                     </div>
                 </div>
@@ -426,35 +443,36 @@
     <section class="py-5 bg-card" id="projects" style="background-color: #162032;">
         <div class="container py-5">
             <h2 class="section-title">Proyectos <span class="text-cyan">Destacados</span></h2>
+            
             <div class="row g-4">
-                <div class="col-lg-6" data-aos="fade-up">
+                <div class="col-md-6" data-aos="fade-up">
                     <div class="tech-card border-cyan">
+                        <div class="project-img-wrapper">
+                            <img src="proy-gramola.jpg" alt="La Gramola" class="project-img" onerror="this.src='https://via.placeholder.com/600x300/06b6d4/ffffff?text=La+Gramola'">
+                        </div>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h3 class="h4 mb-0 text-white"><i class="fas fa-music text-cyan me-2"></i> La Gramola</h3>
                             <span class="badge bg-warning text-dark">En Desarrollo</span>
                         </div>
                         <p class="text-secondary">
-                            Plataforma web para gestión musical en establecimientos comerciales. Permite a los usuarios interactuar con la música del local mediante pagos.
+                            Plataforma web para gestión musical en establecimientos comerciales. Permite a los usuarios interactuar con la música del local mediante pagos seguros y colas de reproducción.
                         </p>
-                        <ul class="text-secondary small mb-4">
-                            <li><i class="fas fa-check text-cyan me-2"></i>Integración <strong>OAuth 2.0</strong> con API de Spotify.</li>
-                            <li><i class="fas fa-check text-cyan me-2"></i>Pasarela de pagos segura con <strong>Stripe</strong>.</li>
-                            <li><i class="fas fa-check text-cyan me-2"></i>Arquitectura robusta <strong>Spring Boot</strong> (Backend) + <strong>Angular</strong> (Frontend).</li>
-                        </ul>
-                        <div class="mt-auto">
+                        <div class="mt-auto pt-3">
                             <span class="project-badge">Java Spring Boot</span>
                             <span class="project-badge">Angular</span>
-                            <span class="project-badge">MySQL</span>
-                            <span class="project-badge">API REST</span>
+                            <span class="project-badge">Stripe / OAuth</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="tech-card">
+                         <div class="project-img-wrapper">
+                            <img src="proy-iker.jpg" alt="Web Asociación Iker" class="project-img" onerror="this.src='https://via.placeholder.com/600x300/3b82f6/ffffff?text=Web+Asociacion'">
+                        </div>
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <h4 class="h5 mb-0 text-white">Web Asociación Iker</h4>
-                            <span class="badge bg-warning text-dark">En Desarrollo</span>
+                            <span class="badge bg-info text-dark" style="font-size: 0.7rem;">En Proceso</span>
                         </div>
                         <p class="text-secondary small">
                             Implantación y personalización de sitio web con <strong>WordPress</strong>. Configuración de plugins y CMS para una asociación real.
@@ -462,13 +480,15 @@
                         <div class="mt-auto">
                             <span class="project-badge">WordPress</span>
                             <span class="project-badge">CMS / Plugins</span>
-                            <span class="project-badge">Consultoría</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="tech-card">
+                         <div class="project-img-wrapper">
+                            <img src="proy-player.jpg" alt="Reproductor Web" class="project-img" onerror="this.src='https://via.placeholder.com/600x300/10b981/ffffff?text=Media+Player'">
+                        </div>
                         <h4 class="h5 mb-3 text-white">Reproductor Multimedia Web</h4>
                         <p class="text-secondary small">
                             Aplicación web interactiva (SPA) para la gestión y reproducción de contenido multimedia. Interfaz moderna y responsive.
@@ -476,7 +496,22 @@
                         <div class="mt-auto">
                             <span class="project-badge">Angular</span>
                             <span class="project-badge">TypeScript</span>
-                            <span class="project-badge">Multimedia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tech-card">
+                         <div class="project-img-wrapper">
+                            <img src="proy-portfolio.jpg" alt="Porfolio Personal" class="project-img" onerror="this.src='https://via.placeholder.com/600x300/6366f1/ffffff?text=Mi+Portfolio'">
+                        </div>
+                        <h4 class="h5 mb-3 text-white">Porfolio Web Personal</h4>
+                        <p class="text-secondary small">
+                            Diseño y desarrollo de identidad digital profesional. Implementación de buenas prácticas de SEO, accesibilidad y despliegue automatizado.
+                        </p>
+                        <div class="mt-auto">
+                            <span class="project-badge">HTML5 / Bootstrap</span>
+                            <span class="project-badge">GitHub Pages</span>
                         </div>
                     </div>
                 </div>
