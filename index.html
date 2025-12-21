@@ -49,10 +49,11 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             background: radial-gradient(circle at center, #1e293b 0%, #0f172a 70%);
+            padding: 80px 0;
         }
         .typing-text {
             font-size: 1.5rem;
@@ -65,15 +66,17 @@
             height: 280px;
             border-radius: 50%;
             border: 4px solid var(--accent-cyan);
-            box-shadow: 0 0 20px var(--accent-glow);
+            box-shadow: 0 0 30px var(--accent-glow);
             overflow: hidden;
             margin: 0 auto;
-            background-color: #333; /* Placeholder gris si no hay foto */
+            background-color: #333;
         }
         .profile-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            /* Ajuste fino para centrar la cara si es necesario */
+            object-position: center top; 
         }
 
         /* Cards (Proyectos y Skills) */
@@ -84,6 +87,8 @@
             padding: 2rem;
             transition: all 0.3s ease;
             height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         .tech-card:hover {
             transform: translateY(-5px);
@@ -94,11 +99,11 @@
             background: rgba(6, 182, 212, 0.1);
             color: var(--accent-cyan);
             border: 1px solid var(--accent-cyan);
-            padding: 5px 10px;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
+            font-size: 0.75rem;
+            margin-right: 4px;
+            margin-bottom: 4px;
             display: inline-block;
         }
 
@@ -139,7 +144,7 @@
         .btn-neon:hover {
             background-color: var(--accent-cyan);
             color: var(--bg-dark);
-            box-shadow: 0 0 15px var(--accent-glow);
+            box-shadow: 0 0 20px var(--accent-glow);
         }
 
         /* Footer */
@@ -177,7 +182,7 @@
                 </div>
                 <div class="col-lg-5 mb-5 mb-lg-0" data-aos="zoom-in">
                     <div class="profile-img-container">
-                        <img src="https://via.placeholder.com/280x280/333/06b6d4?text=Foto+IA" alt="Gonzalo Moreno" class="profile-img">
+                        <img src="FotoOrla.jpg" alt="Gonzalo Moreno Antona" class="profile-img">
                     </div>
                 </div>
             </div>
@@ -191,37 +196,37 @@
                     <h2 class="section-title">Arsenal <span class="text-cyan">Técnico</span></h2>
                     <div class="row g-3">
                         <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3">
+                            <div class="tech-card text-center p-3 justify-content-center">
                                 <i class="fab fa-java fa-3x text-cyan mb-3"></i>
                                 <h5>Java / Spring</h5>
                             </div>
                         </div>
                         <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3">
+                            <div class="tech-card text-center p-3 justify-content-center">
                                 <i class="fab fa-angular fa-3x text-danger mb-3"></i>
                                 <h5>Angular</h5>
                             </div>
                         </div>
                         <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3">
+                            <div class="tech-card text-center p-3 justify-content-center">
                                 <i class="fas fa-database fa-3x text-warning mb-3"></i>
                                 <h5>SQL / MySQL</h5>
                             </div>
                         </div>
                         <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3">
+                            <div class="tech-card text-center p-3 justify-content-center">
                                 <i class="fab fa-docker fa-3x text-primary mb-3"></i>
                                 <h5>Docker</h5>
                             </div>
                         </div>
                         <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3">
+                            <div class="tech-card text-center p-3 justify-content-center">
                                 <i class="fab fa-python fa-3x text-info mb-3"></i>
                                 <h5>Python</h5>
                             </div>
                         </div>
                         <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3">
+                            <div class="tech-card text-center p-3 justify-content-center">
                                 <i class="fab fa-linux fa-3x text-white mb-3"></i>
                                 <h5>Linux/SysAdmin</h5>
                             </div>
@@ -239,13 +244,13 @@
                             <small class="text-muted">Adaptación a entornos multiculturales, trabajo en equipo en inglés y metodologías ágiles.</small>
                         </div>
                         <div class="timeline-item">
-                            <span class="text-cyan fw-bold">2020 - Actualidad</span>
+                            <span class="text-cyan fw-bold">2022 - Actualidad</span>
                             <h4 class="mt-2">Grado en Ingeniería Informática</h4>
                             <p class="text-secondary mb-0">Universidad de Castilla-La Mancha (UCLM)</p>
                             <small class="text-muted">Especialidad en Tecnologías de la Información (TI). Desarrollo Web Full Stack y Redes.</small>
                         </div>
                         <div class="timeline-item">
-                            <span class="text-secondary">Anterior</span>
+                            <span class="text-secondary">2020 - 2022</span>
                             <h5 class="mt-2">Bachillerato Científico-Tecnológico</h5>
                             <p class="text-secondary">I.E.S. Torreón del Alcázar</p>
                         </div>
@@ -274,23 +279,23 @@
                             <li><i class="fas fa-check text-cyan me-2"></i>Pasarela de pagos segura con <strong>Stripe</strong>.</li>
                             <li><i class="fas fa-check text-cyan me-2"></i>Arquitectura robusta <strong>Spring Boot</strong> (Backend) + <strong>Angular</strong> (Frontend).</li>
                         </ul>
-                        <div class="mb-4">
+                        <div class="mt-auto">
                             <span class="project-badge">Java Spring Boot</span>
                             <span class="project-badge">Angular</span>
                             <span class="project-badge">MySQL</span>
                             <span class="project-badge">API REST</span>
-                        </div>
-                        <div class="d-grid">
-                            <a href="#" class="btn btn-outline-light btn-sm disabled">Código Privado (Académico)</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="tech-card">
-                        <h4 class="h5 mb-3">Web Asociación Iker</h4>
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h4 class="h5 mb-0">Web Asociación Iker</h4>
+                            <span class="badge bg-info text-dark" style="font-size: 0.7rem;">En Proceso</span>
+                        </div>
                         <p class="text-secondary small">
-                            Consultoría y rediseño web completo para una asociación real. Mejora de UX/UI y migración tecnológica.
+                            Consultoría y rediseño web completo para una asociación real.
                         </p>
                         <div class="mt-auto">
                             <span class="project-badge">HTML5/CSS3</span>
@@ -317,7 +322,7 @@
 
     <footer class="py-5 text-center">
         <div class="container">
-            <h2 class="mb-4">¿Hablamos?</h2>
+            <h2 class="mb-4">Contacta conmigo.</h2>
             <p class="text-secondary mb-4">Estoy disponible para nuevas oportunidades y retos tecnológicos.</p>
             <div class="d-flex justify-content-center gap-4 mb-5">
                 <a href="mailto:gmorenoantona@gmail.com" class="text-white fs-2"><i class="fas fa-envelope"></i></a>
