@@ -3,59 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gonzalo Moreno - Porfolio</title>
+    <meta name="description" content="Porfolio de Gonzalo Moreno Antona - Ingeniero Informático Full Stack especializado en TI.">
+    <title>Gonzalo Moreno | Portfolio</title>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f8f9fa; }
-        .hero { background: #212529; color: white; padding: 60px 0; }
-        .timeline { border-left: 3px solid #0d6efd; padding-left: 20px; position: relative; }
-        .skill-badge { margin: 5px; display: inline-block; }
+        /* --- ESTILO MIDNIGHT TECH --- */
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-cyan: #06b6d4; /* Color Neón */
+            --accent-glow: rgba(6, 182, 212, 0.5);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Tipografía y Textos */
+        h1, h2, h3 { font-weight: 700; }
+        .text-cyan { color: var(--accent-cyan); }
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-cyan);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 70%);
+        }
+        .typing-text {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-family: monospace;
+            min-height: 1.5em; /* Evita saltos */
+        }
+        .profile-img-container {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-cyan);
+            box-shadow: 0 0 20px var(--accent-glow);
+            overflow: hidden;
+            margin: 0 auto;
+            background-color: #333; /* Placeholder gris si no hay foto */
+        }
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Cards (Proyectos y Skills) */
+        .tech-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .tech-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px -10px var(--accent-glow);
+        }
+        .project-badge {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Timeline */
+        .timeline {
+            border-left: 3px solid var(--accent-cyan);
+            margin-left: 10px;
+            padding-left: 30px;
+            position: relative;
+        }
+        .timeline-item {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background: var(--bg-dark);
+            border: 3px solid var(--accent-cyan);
+            border-radius: 50%;
+            position: absolute;
+            left: -39px;
+            top: 5px;
+        }
+
+        /* Botones */
+        .btn-neon {
+            background-color: transparent;
+            color: var(--accent-cyan);
+            border: 2px solid var(--accent-cyan);
+            padding: 10px 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-neon:hover {
+            background-color: var(--accent-cyan);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-card);
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
     </style>
 </head>
 <body>
 
-    <header class="hero text-center">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px);">
         <div class="container">
-            <h1>Gonzalo Moreno Antona</h1>
-            <p class="lead">Estudiante de Ingeniería Informática | Especialidad TI</p>
-            <p>Alumno de último año con experiencia internacional en Polonia (Warsaw University of Technology).</p>
-            <a href="CV- GonzaloMorenoAntona.pdf" class="btn btn-primary btn-lg" download>Descargar CV (PDF)</a>
+            <a class="navbar-brand font-monospace text-cyan" href="#">&lt;GM /&gt;</a>
         </div>
-    </header>
+    </nav>
 
-    <main class="container my-5">
-        <div class="row">
-            <div class="col-md-6">
-                <h3>Hard Skills</h3>
-                <span class="badge bg-dark skill-badge">Java</span>
-                <span class="badge bg-dark skill-badge">Angular</span>
-                <span class="badge bg-dark skill-badge">Python</span>
-                <span class="badge bg-dark skill-badge">SQL</span>
-                <span class="badge bg-dark skill-badge">Docker</span>
-                
-                <h3 class="mt-4">Soft Skills</h3>
-                <ul class="list-group">
-                    <li class="list-group-item">Trabajo en equipo</li>
-                    <li class="list-group-item">Resolución de problemas</li>
-                    <li class="list-group-item">Adaptación multicultural</li>
-                </ul>
-            </div>
-
-            <div class="col-md-6">
-                <h3>Trayectoria Académica</h3>
-                <div class="timeline">
-                    <h5>2024 - 2025</h5>
-                    <p>Erasmus+ en Varsovia (Polonia). Warsaw University of Technology.</p>
-                    <h5>2020 - Actualidad</h5>
-                    <p>Grado en Ingeniería Informática (UCLM).</p>
+    <section class="hero text-center text-lg-start">
+        <div class="container">
+            <div class="row align-items-center flex-column-reverse flex-lg-row">
+                <div class="col-lg-7" data-aos="fade-right">
+                    <h1 class="display-3 fw-bold mb-3">Hola, soy <span class="text-cyan">Gonzalo Moreno</span></h1>
+                    <div class="typing-text mb-4" id="typing-text"></div>
+                    
+                    <p class="lead text-secondary mb-5">
+                        Estudiante de último año de Ingeniería Informática (TI) con mentalidad global. 
+                        Apasionado por crear soluciones Full Stack escalables y resolver problemas complejos.
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
+                        <a href="CV- GonzaloMorenoAntona.pdf" download class="btn btn-neon">
+                            <i class="fas fa-download me-2"></i>Descargar CV
+                        </a>
+                        <a href="#projects" class="btn btn-outline-light px-4">Ver Proyectos</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="zoom-in">
+                    <div class="profile-img-container">
+                        <img src="https://via.placeholder.com/280x280/333/06b6d4?text=Foto+IA" alt="Gonzalo Moreno" class="profile-img">
+                    </div>
                 </div>
             </div>
         </div>
-    </main>
+    </section>
 
-    <footer class="bg-light text-center py-4">
-        <p>Contacto: <a href="mailto:gmorenoantona@gmail.com">gmorenoantona@gmail.com</a></p>
+    <section class="py-5" id="about">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-6 mb-5" data-aos="fade-up">
+                    <h2 class="section-title">Arsenal <span class="text-cyan">Técnico</span></h2>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-4">
+                            <div class="tech-card text-center p-3">
+                                <i class="fab fa-java fa-3x text-cyan mb-3"></i>
+                                <h5>Java / Spring</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="tech-card text-center p-3">
+                                <i class="fab fa-angular fa-3x text-danger mb-3"></i>
+                                <h5>Angular</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="tech-card text-center p-3">
+                                <i class="fas fa-database fa-3x text-warning mb-3"></i>
+                                <h5>SQL / MySQL</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="tech-card text-center p-3">
+                                <i class="fab fa-docker fa-3x text-primary mb-3"></i>
+                                <h5>Docker</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="tech-card text-center p-3">
+                                <i class="fab fa-python fa-3x text-info mb-3"></i>
+                                <h5>Python</h5>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-4">
+                            <div class="tech-card text-center p-3">
+                                <i class="fab fa-linux fa-3x text-white mb-3"></i>
+                                <h5>Linux/SysAdmin</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="section-title">Mi <span class="text-cyan">Trayectoria</span></h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <span class="text-cyan fw-bold">2024 - 2025</span>
+                            <h4 class="mt-2">Erasmus+ International Experience</h4>
+                            <p class="text-secondary mb-0">Warsaw University of Technology (Polonia)</p>
+                            <small class="text-muted">Adaptación a entornos multiculturales, trabajo en equipo en inglés y metodologías ágiles.</small>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-cyan fw-bold">2020 - Actualidad</span>
+                            <h4 class="mt-2">Grado en Ingeniería Informática</h4>
+                            <p class="text-secondary mb-0">Universidad de Castilla-La Mancha (UCLM)</p>
+                            <small class="text-muted">Especialidad en Tecnologías de la Información (TI). Desarrollo Web Full Stack y Redes.</small>
+                        </div>
+                        <div class="timeline-item">
+                            <span class="text-secondary">Anterior</span>
+                            <h5 class="mt-2">Bachillerato Científico-Tecnológico</h5>
+                            <p class="text-secondary">I.E.S. Torreón del Alcázar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-dark" id="projects" style="background-color: #162032 !important;">
+        <div class="container py-5">
+            <h2 class="section-title">Proyectos <span class="text-cyan">Destacados</span></h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="tech-card border-cyan">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h3 class="h4 mb-0"><i class="fas fa-music text-cyan me-2"></i> La Gramola (SaaS)</h3>
+                            <span class="badge bg-warning text-dark">En Desarrollo</span>
+                        </div>
+                        <p class="text-secondary">
+                            Plataforma web para gestión musical en establecimientos comerciales. Permite a los usuarios interactuar con la música del local mediante pagos.
+                        </p>
+                        <ul class="text-secondary small mb-4">
+                            <li><i class="fas fa-check text-cyan me-2"></i>Integración <strong>OAuth 2.0</strong> con API de Spotify.</li>
+                            <li><i class="fas fa-check text-cyan me-2"></i>Pasarela de pagos segura con <strong>Stripe</strong>.</li>
+                            <li><i class="fas fa-check text-cyan me-2"></i>Arquitectura robusta <strong>Spring Boot</strong> (Backend) + <strong>Angular</strong> (Frontend).</li>
+                        </ul>
+                        <div class="mb-4">
+                            <span class="project-badge">Java Spring Boot</span>
+                            <span class="project-badge">Angular</span>
+                            <span class="project-badge">MySQL</span>
+                            <span class="project-badge">API REST</span>
+                        </div>
+                        <div class="d-grid">
+                            <a href="#" class="btn btn-outline-light btn-sm disabled">Código Privado (Académico)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-card">
+                        <h4 class="h5 mb-3">Web Asociación Iker</h4>
+                        <p class="text-secondary small">
+                            Consultoría y rediseño web completo para una asociación real. Mejora de UX/UI y migración tecnológica.
+                        </p>
+                        <div class="mt-auto">
+                            <span class="project-badge">HTML5/CSS3</span>
+                            <span class="project-badge">Consultoría</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-card">
+                        <h4 class="h5 mb-3">Media Player App</h4>
+                        <p class="text-secondary small">
+                            Aplicación de escritorio para gestión y reproducción de archivos multimedia locales con interfaz personalizada.
+                        </p>
+                        <div class="mt-auto">
+                            <span class="project-badge">Java Swing</span>
+                            <span class="project-badge">Multimedia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5 text-center">
+        <div class="container">
+            <h2 class="mb-4">¿Hablamos?</h2>
+            <p class="text-secondary mb-4">Estoy disponible para nuevas oportunidades y retos tecnológicos.</p>
+            <div class="d-flex justify-content-center gap-4 mb-5">
+                <a href="mailto:gmorenoantona@gmail.com" class="text-white fs-2"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/gonzalo-moreno-antona" target="_blank" class="text-white fs-2"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/GonzaloMorenoAntona" target="_blank" class="text-white fs-2"><i class="fab fa-github"></i></a>
+            </div>
+            <p class="text-secondary small">&copy; 2025 Gonzalo Moreno Antona. Diseñado con Bootstrap & Code.</p>
+        </div>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Iniciar animaciones al hacer scroll
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Efecto de escritura tipo máquina de escribir
+        const textElement = document.getElementById('typing-text');
+        const texts = ["Ingeniero de Software.", "Especialista TI.", "Full Stack Developer.", "Gonzalo Moreno."];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                textElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                textElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000; // Pausa al terminar de escribir
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', type);
+    </script>
 </body>
 </html>
