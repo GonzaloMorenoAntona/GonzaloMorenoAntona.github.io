@@ -16,8 +16,8 @@
             --bg-dark: #0f172a;
             --bg-card: #1e293b;
             --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-cyan: #06b6d4; /* Color Neón */
+            --text-secondary: #cbd5e1;
+            --accent-cyan: #06b6d4; 
             --accent-glow: rgba(6, 182, 212, 0.5);
         }
 
@@ -28,9 +28,10 @@
             overflow-x: hidden;
         }
 
-        /* Tipografía y Textos */
-        h1, h2, h3 { font-weight: 700; }
+        h1, h2, h3, h4 { font-weight: 700; }
         .text-cyan { color: var(--accent-cyan); }
+        .text-justify { text-align: justify; }
+
         .section-title {
             font-size: 2.5rem;
             margin-bottom: 3rem;
@@ -47,9 +48,9 @@
             border-radius: 2px;
         }
 
-        /* Hero Section */
+        /* --- HERO --- */
         .hero {
-            min-height: 90vh;
+            min-height: 95vh;
             display: flex;
             align-items: center;
             background: radial-gradient(circle at center, #1e293b 0%, #0f172a 70%);
@@ -59,22 +60,19 @@
             font-size: 1.5rem;
             color: var(--text-secondary);
             font-family: monospace;
-            min-height: 1.5em; /* Evita saltos */
+            min-height: 1.5em;
         }
-        
-        /* CORRECCIÓN DE LA FOTO (ZOOM AUTOMÁTICO) */
         .profile-img-container {
             width: 280px;
             height: 280px;
             border-radius: 50%;
             border: 4px solid var(--accent-cyan);
             box-shadow: 0 0 30px var(--accent-glow);
-            overflow: hidden; /* Esto recorta lo que sobra */
+            overflow: hidden; 
             margin: 0 auto;
             background-color: #333;
             position: relative;
         }
-        
         .profile-img {
             width: 100%;
             height: 100%;
@@ -83,10 +81,10 @@
             transform: scale(1.6) translate(8px, 0px);
         }
 
-        /* Cards (Proyectos y Skills) */
+        /* --- CARDS GENERICA --- */
         .tech-card {
             background-color: var(--bg-card);
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.05);
             border-radius: 12px;
             padding: 2rem;
             transition: all 0.3s ease;
@@ -99,19 +97,50 @@
             border-color: var(--accent-cyan);
             box-shadow: 0 10px 30px -10px var(--accent-glow);
         }
-        .project-badge {
+
+        /* --- SERVICIOS --- */
+        .service-icon {
+            width: 60px;
+            height: 60px;
             background: rgba(6, 182, 212, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
             color: var(--accent-cyan);
-            border: 1px solid var(--accent-cyan);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            margin-right: 4px;
-            margin-bottom: 4px;
-            display: inline-block;
+            font-size: 1.5rem;
         }
 
-        /* Timeline */
+        /* --- SOFT SKILLS & IDIOMAS --- */
+        .skill-bar-container {
+            margin-bottom: 1.5rem;
+        }
+        .skill-title {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .progress {
+            height: 8px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+        .progress-bar {
+            background-color: var(--accent-cyan);
+        }
+        .soft-skill-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+        }
+        
+        /* --- TIMELINE --- */
         .timeline {
             border-left: 3px solid var(--accent-cyan);
             margin-left: 10px;
@@ -133,8 +162,27 @@
             left: -39px;
             top: 5px;
         }
+        .timeline-desc {
+            color: #cbd5e1 !important;
+            display: block;
+            margin-top: 5px;
+            font-size: 0.95rem;
+        }
 
-        /* Botones */
+        /* --- PROYECTOS --- */
+        .project-badge {
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            display: inline-block;
+        }
+
+        /* --- BUTTONS --- */
         .btn-neon {
             background-color: transparent;
             color: var(--accent-cyan);
@@ -151,7 +199,6 @@
             box-shadow: 0 0 20px var(--accent-glow);
         }
 
-        /* Footer */
         footer {
             background-color: var(--bg-card);
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -163,6 +210,17 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px);">
         <div class="container">
             <a class="navbar-brand font-monospace text-cyan" href="#">&lt;GM /&gt;</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -170,7 +228,7 @@
         <div class="container">
             <div class="row align-items-center flex-column-reverse flex-lg-row">
                 <div class="col-lg-7" data-aos="fade-right">
-                    <h1 class="display-3 fw-bold mb-3">Hola, soy <span class="text-cyan">Gonzalo Moreno Antona</span></h1>
+                    <h1 class="display-3 fw-bold mb-3">Hola, soy <span class="text-cyan">Gonzalo Moreno</span></h1>
                     <div class="typing-text mb-4" id="typing-text"></div>
                     
                     <p class="lead text-secondary mb-5">
@@ -195,68 +253,65 @@
 
     <section class="py-5" id="about">
         <div class="container py-5">
-            <div class="row">
+            <div class="row gx-5">
                 <div class="col-lg-6 mb-5" data-aos="fade-up">
-                    <h2 class="section-title">Arsenal <span class="text-cyan">Técnico</span></h2>
-                    <div class="row g-3">
-                        <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3 justify-content-center">
-                                <i class="fab fa-java fa-3x text-cyan mb-3"></i>
-                                <h5>Java / Spring</h5>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3 justify-content-center">
-                                <i class="fab fa-angular fa-3x text-danger mb-3"></i>
-                                <h5>Angular</h5>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3 justify-content-center">
-                                <i class="fas fa-database fa-3x text-warning mb-3"></i>
-                                <h5>SQL / MySQL</h5>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3 justify-content-center">
-                                <i class="fab fa-docker fa-3x text-primary mb-3"></i>
-                                <h5>Docker</h5>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3 justify-content-center">
-                                <i class="fab fa-python fa-3x text-info mb-3"></i>
-                                <h5>Python</h5>
-                            </div>
-                        </div>
-                        <div class="col-6 col-md-4">
-                            <div class="tech-card text-center p-3 justify-content-center">
-                                <i class="fab fa-linux fa-3x text-white mb-3"></i>
-                                <h5>Linux/SysAdmin</h5>
-                            </div>
-                        </div>
+                    <h2 class="section-title">Sobre <span class="text-cyan">Mí</span></h2>
+                    <p class="text-secondary text-justify mb-4">
+                        Soy un estudiante de último año de Ingeniería Informática apasionado por resolver problemas complejos mediante la tecnología. Mi enfoque va más allá del código: busco crear sistemas eficientes, seguros y que aporten valor real.
+                    </p>
+                    <p class="text-secondary text-justify mb-4">
+                        Durante mi estancia Erasmus+ en Polonia, no solo perfeccioné mi inglés técnico, sino que desarrollé una gran capacidad para trabajar en entornos internacionales y adaptarme a metodologías ágiles cambiantes.
+                    </p>
+                    
+                    <h4 class="mt-5 mb-4 text-white"><i class="fas fa-globe text-cyan me-2"></i>Idiomas</h4>
+                    
+                    <div class="skill-bar-container">
+                        <div class="skill-title"><span>Español</span> <span>Nativo</span></div>
+                        <div class="progress"><div class="progress-bar" style="width: 100%"></div></div>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-title"><span>Inglés (Fluidez Profesional)</span> <span>B2 / C1</span></div>
+                        <div class="progress"><div class="progress-bar" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-title"><span>Francés</span> <span>B1</span></div>
+                        <div class="progress"><div class="progress-bar" style="width: 40%"></div></div>
                     </div>
                 </div>
 
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                    <h2 class="section-title">Mi <span class="text-cyan">Trayectoria</span></h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="text-cyan fw-bold">2024 - 2025</span>
-                            <h4 class="mt-2">Erasmus+ International Experience</h4>
-                            <p class="text-secondary mb-0">Warsaw University of Technology (Polonia)</p>
-                            <small class="timeline-desc">Adaptación a entornos multiculturales, trabajo en equipo en inglés y metodologías ágiles.</small>
+                    <h2 class="section-title">Aptitudes <span class="text-cyan">Personales</span></h2>
+                    <p class="text-secondary mb-4">Lo que aporto a un equipo más allá de lo técnico:</p>
+
+                    <div class="soft-skill-item">
+                        <i class="fas fa-users fa-2x text-cyan"></i>
+                        <div>
+                            <h5 class="mb-1 text-white">Trabajo en Equipo</h5>
+                            <small class="text-secondary">Experiencia colaborando en proyectos académicos y grupos internacionales.</small>
                         </div>
-                        <div class="timeline-item">
-                            <span class="text-cyan fw-bold">2022 - Actualidad</span>
-                            <h4 class="mt-2">Grado en Ingeniería Informática</h4>
-                            <p class="text-secondary mb-0">Universidad de Castilla-La Mancha (UCLM)</p>
-                            <small class="timeline-desc">Especialidad en Tecnologías de la Información (TI). Desarrollo Web Full Stack.</small>
+                    </div>
+                    
+                    <div class="soft-skill-item">
+                        <i class="fas fa-brain fa-2x text-cyan"></i>
+                        <div>
+                            <h5 class="mb-1 text-white">Resolución de Problemas</h5>
+                            <small class="text-secondary">Enfoque analítico y lógico para descomponer retos complejos en soluciones viables.</small>
                         </div>
-                        <div class="timeline-item">
-                            <span class="text-cyan fw-bold">2020 - 2022</span>
-                            <h5 class="mt-2">Bachillerato Científico-Tecnológico</h5>
-                            <p class="text-secondary">I.E.S. Torreón del Alcázar</p>
+                    </div>
+
+                    <div class="soft-skill-item">
+                        <i class="fas fa-sync-alt fa-2x text-cyan"></i>
+                        <div>
+                            <h5 class="mb-1 text-white">Adaptabilidad</h5>
+                            <small class="text-secondary">Capacidad demostrada para integrarme rápidamente en nuevos entornos y stacks tecnológicos.</small>
+                        </div>
+                    </div>
+
+                    <div class="soft-skill-item">
+                        <i class="fas fa-rocket fa-2x text-cyan"></i>
+                        <div>
+                            <h5 class="mb-1 text-white">Proactividad</h5>
+                            <small class="text-secondary">Iniciativa constante para aprender nuevas herramientas (Docker, Kali Linux) por mi cuenta.</small>
                         </div>
                     </div>
                 </div>
@@ -264,15 +319,118 @@
         </div>
     </section>
 
-    <section class="py-5 bg-dark" id="projects" style="background-color: #162032 !important;">
+    <section class="py-5 bg-card" id="services" style="background-color: #162032;">
+        <div class="container py-5">
+            <h2 class="section-title text-center w-100">¿Qué puedo <span class="text-cyan">hacer?</span></h2>
+            <div class="row g-4 mt-3">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="tech-card text-center">
+                        <div class="service-icon mx-auto"><i class="fas fa-code"></i></div>
+                        <h4>Desarrollo Full Stack</h4>
+                        <p class="text-secondary mt-3">
+                            Creación de aplicaciones web robustas desde el backend (Spring Boot) hasta interfaces modernas en Angular. Integración de APIs y bases de datos.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tech-card text-center">
+                        <div class="service-icon mx-auto"><i class="fas fa-server"></i></div>
+                        <h4>Sistemas & DevOps</h4>
+                        <p class="text-secondary mt-3">
+                            Despliegue de aplicaciones en contenedores Docker, gestión de entornos Linux y configuración de redes y seguridad básica.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-card text-center">
+                        <div class="service-icon mx-auto"><i class="fas fa-laptop-code"></i></div>
+                        <h4>Digitalización Web</h4>
+                        <p class="text-secondary mt-3">
+                            Consultoría e implantación de CMS como WordPress para asociaciones y negocios. Optimización y configuración de plugins.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" id="skills">
+        <div class="container py-5">
+            <h2 class="section-title">Stack <span class="text-cyan">Tecnológico</span></h2>
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fab fa-java fa-3x text-cyan mb-3"></i>
+                        <h5>Java</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fab fa-angular fa-3x text-danger mb-3"></i>
+                        <h5>Angular</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fas fa-database fa-3x text-warning mb-3"></i>
+                        <h5>MySQL</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fab fa-docker fa-3x text-primary mb-3"></i>
+                        <h5>Docker</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fab fa-python fa-3x text-info mb-3"></i>
+                        <h5>Python</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fab fa-linux fa-3x text-white mb-3"></i>
+                        <h5>Linux</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Mi <span class="text-cyan">Trayectoria</span></h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-left">
+                    <span class="text-cyan fw-bold">2024 - 2025</span>
+                    <h4 class="mt-2 text-white">Erasmus+ International Experience</h4>
+                    <p class="text-secondary mb-0">Warsaw University of Technology (Polonia)</p>
+                    <small class="timeline-desc">Adaptación a entornos multiculturales, trabajo en equipo en inglés y metodologías ágiles.</small>
+                </div>
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                    <span class="text-cyan fw-bold">2022 - Actualidad</span>
+                    <h4 class="mt-2 text-white">Grado en Ingeniería Informática</h4>
+                    <p class="text-secondary mb-0">Universidad de Castilla-La Mancha (UCLM)</p>
+                    <small class="timeline-desc">Especialidad en Tecnologías de la Información (TI). Desarrollo Web Full Stack.</small>
+                </div>
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                    <span class="text-cyan fw-bold">2020 - 2022</span>
+                    <h5 class="mt-2 text-white">Bachillerato Científico-Tecnológico</h5>
+                    <p class="text-secondary">I.E.S. Torreón del Alcázar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-card" id="projects" style="background-color: #162032;">
         <div class="container py-5">
             <h2 class="section-title">Proyectos <span class="text-cyan">Destacados</span></h2>
-            
             <div class="row g-4">
                 <div class="col-lg-6" data-aos="fade-up">
                     <div class="tech-card border-cyan">
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h3 class="h4 mb-0"><i class="fas fa-music text-cyan me-2"></i> La Gramola</h3>
+                            <h3 class="h4 mb-0 text-white"><i class="fas fa-music text-cyan me-2"></i> La Gramola</h3>
                             <span class="badge bg-warning text-dark">En Desarrollo</span>
                         </div>
                         <p class="text-secondary">
@@ -295,15 +453,15 @@
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="tech-card">
                         <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h4 class="h5 mb-0">Web Asociación Iker</h4>
-                            <span class="badge bg-warning text-dark">En Desarrollo</span>
+                            <h4 class="h5 mb-0 text-white">Web Asociación Iker</h4>
+                            <span class="badge bg-info text-dark" style="font-size: 0.7rem;">En Proceso</span>
                         </div>
                         <p class="text-secondary small">
-                            Implantación y personalización de sitio web con <strong>WordPress</strong>. Configuración de plugins.
+                            Implantación y personalización de sitio web con <strong>WordPress</strong>. Configuración de plugins y CMS para una asociación real.
                         </p>
                         <div class="mt-auto">
                             <span class="project-badge">WordPress</span>
-                            <span class="project-badge">Plugins</span>
+                            <span class="project-badge">CMS / Plugins</span>
                             <span class="project-badge">Consultoría</span>
                         </div>
                     </div>
@@ -311,7 +469,7 @@
 
                 <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
                     <div class="tech-card">
-                        <h4 class="h5 mb-3">Reproductor Multimedia Web</h4>
+                        <h4 class="h5 mb-3 text-white">Reproductor Multimedia Web</h4>
                         <p class="text-secondary small">
                             Aplicación web interactiva (SPA) para la gestión y reproducción de contenido multimedia. Interfaz moderna y responsive.
                         </p>
@@ -328,7 +486,7 @@
 
     <footer class="py-5 text-center">
         <div class="container">
-            <h2 class="mb-4">Contacta conmigo</h2>
+            <h2 class="mb-4">¿Hablamos?</h2>
             <p class="text-secondary mb-4">Estoy disponible para nuevas oportunidades y retos tecnológicos.</p>
             <div class="d-flex justify-content-center gap-4 mb-5">
                 <a href="mailto:gmorenoantona@gmail.com" class="text-white fs-2"><i class="fas fa-envelope"></i></a>
@@ -340,14 +498,10 @@
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Iniciar animaciones al hacer scroll
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+        AOS.init({ duration: 1000, once: true });
 
-        // Efecto de escritura tipo máquina de escribir
         const textElement = document.getElementById('typing-text');
         const texts = ["Ingeniero Informático.", "Especialidad TI.", "Full Stack Developer.", "Gonzalo Moreno Antona."];
         let textIndex = 0;
@@ -356,7 +510,6 @@
 
         function type() {
             const currentText = texts[textIndex];
-            
             if (isDeleting) {
                 textElement.textContent = currentText.substring(0, charIndex - 1);
                 charIndex--;
@@ -364,21 +517,17 @@
                 textElement.textContent = currentText.substring(0, charIndex + 1);
                 charIndex++;
             }
-
             let typeSpeed = isDeleting ? 50 : 100;
-
             if (!isDeleting && charIndex === currentText.length) {
-                typeSpeed = 2000; // Pausa al terminar de escribir
+                typeSpeed = 2000;
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 textIndex = (textIndex + 1) % texts.length;
                 typeSpeed = 500;
             }
-
             setTimeout(type, typeSpeed);
         }
-
         document.addEventListener('DOMContentLoaded', type);
     </script>
 </body>
