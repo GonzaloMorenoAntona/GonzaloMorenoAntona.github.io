@@ -62,25 +62,23 @@
             font-family: monospace;
             min-height: 1.5em;
         }
+        /* FOTO PEQUEÑA Y CENTRADA */
         .profile-img-container {
-            width: 280px;
-            height: 280px;
+            width: 220px;  /* Tamaño reducido */
+            height: 220px; /* Tamaño reducido */
             border-radius: 50%;
             border: 4px solid var(--accent-cyan);
             box-shadow: 0 0 30px var(--accent-glow);
             overflow: hidden; 
-            margin: 0 auto;
+            margin: 0 auto; /* Centrado horizontal */
             background-color: #333;
             position: relative;
         }
-        
-        /* --- FOTO DE PERFIL (CORREGIDA) --- */
         .profile-img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Asegura que llene el círculo sin deformarse */
-            object-position: center center; /* Centrada perfectamente */
-            /* Se han eliminado las transformaciones (scale/translate) */
+            object-fit: cover;
+            object-position: center center; 
         }
 
         /* --- CARDS GENERICA --- */
@@ -256,7 +254,7 @@
                         Combino solidez técnica Full Stack con la capacidad de adaptación y trabajo en equipos multiculturales.
                     </p>
                     <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                        <a href="CV- GonzaloMorenoAntona.pdf" download class="btn btn-neon">
+                        <a href="CV- GonzaloMorenoAntona.pdf?v=2" download class="btn btn-neon">
                             <i class="fas fa-download me-2"></i>Descargar CV
                         </a>
                     </div>
