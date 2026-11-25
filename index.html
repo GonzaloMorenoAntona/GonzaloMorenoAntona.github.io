@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Gonzalo Moreno Antona - Ingeniero Informático Full Stack especializado en TI.">
-    <title>Gonzalo Moreno | Portfolio</title>
-    
+    <meta name="description" content="Portfolio de Gonzalo Moreno Antona - Ingeniero Informático Full Stack (Spring Boot y React). Desarrollador de la nueva Sede Electrónica del Ayuntamiento de Ciudad Real. Cursando el Máster en Ciberseguridad de UNIR.">
+    <meta property="og:title" content="Gonzalo Moreno | Ingeniero Informático · Desarrollo de Software">
+    <meta property="og:description" content="Full Stack con Spring Boot y React. Autor de la nueva Sede Electrónica del Ayuntamiento de Ciudad Real.">
+    <meta property="og:type" content="website">
+    <title>Gonzalo Moreno | Ingeniero Informático · Desarrollo de Software</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <style>
         /* --- ESTILO MIDNIGHT TECH --- */
         :root {
@@ -17,9 +20,11 @@
             --bg-card: #1e293b;
             --text-primary: #f8fafc;
             --text-secondary: #cbd5e1;
-            --accent-cyan: #06b6d4; 
+            --accent-cyan: #06b6d4;
             --accent-glow: rgba(6, 182, 212, 0.5);
         }
+
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-dark);
@@ -31,6 +36,7 @@
         h1, h2, h3, h4 { font-weight: 700; }
         .text-cyan { color: var(--accent-cyan); }
         .text-justify { text-align: justify; }
+        section[id] { scroll-margin-top: 70px; }
 
         .section-title {
             font-size: 2.5rem;
@@ -47,6 +53,7 @@
             margin-top: 10px;
             border-radius: 2px;
         }
+        .section-title.text-center::after { margin-left: auto; margin-right: auto; }
 
         /* --- HERO --- */
         .hero {
@@ -62,15 +69,14 @@
             font-family: monospace;
             min-height: 1.5em;
         }
-        /* CAMBIO AQUI: TAMAÑO AUMENTADO A 280px */
         .profile-img-container {
             width: 280px;
             height: 280px;
             border-radius: 50%;
             border: 4px solid var(--accent-cyan);
             box-shadow: 0 0 30px var(--accent-glow);
-            overflow: hidden; 
-            margin: 0 auto; /* Centrado horizontal */
+            overflow: hidden;
+            margin: 0 auto;
             background-color: #333;
             position: relative;
         }
@@ -78,7 +84,24 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center center; 
+            object-position: center center;
+        }
+        .hero-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            background: rgba(16, 185, 129, 0.1);
+            color: #6ee7b7;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+        }
+        .hero-status .dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #10b981;
+            box-shadow: 0 0 8px #10b981;
         }
 
         /* --- CARDS GENERICA --- */
@@ -91,7 +114,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            overflow: hidden; 
+            overflow: hidden;
         }
         .tech-card:hover {
             transform: translateY(-5px);
@@ -114,9 +137,7 @@
         }
 
         /* --- SOFT SKILLS & IDIOMAS --- */
-        .skill-bar-container {
-            margin-bottom: 1.5rem;
-        }
+        .skill-bar-container { margin-bottom: 1.5rem; }
         .skill-title {
             display: flex;
             justify-content: space-between;
@@ -128,9 +149,7 @@
             background-color: rgba(255,255,255,0.1);
             border-radius: 4px;
         }
-        .progress-bar {
-            background-color: var(--accent-cyan);
-        }
+        .progress-bar { background-color: var(--accent-cyan); }
         .soft-skill-item {
             display: flex;
             align-items: center;
@@ -140,7 +159,7 @@
             background: rgba(255,255,255,0.03);
             border-radius: 10px;
         }
-        
+
         /* --- TIMELINE --- */
         .timeline {
             border-left: 3px solid var(--accent-cyan);
@@ -170,24 +189,24 @@
             font-size: 0.95rem;
         }
 
-        /* --- PROYECTOS VISUALES (HORIZONTAL) --- */
+        /* --- PROYECTOS --- */
         .project-img-wrapper {
-            /* Ajustes para tarjeta horizontal */
             width: 100%;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
             background-color: #2a3a50;
+            position: relative;
         }
         .project-img {
             width: 100%;
-            height: auto; /* Mantiene la proporción original */
+            height: auto;
             display: block;
             transition: transform 0.5s ease;
+            position: relative;
+            z-index: 1;
         }
-        .tech-card:hover .project-img {
-            transform: scale(1.05); 
-        }
+        .tech-card:hover .project-img { transform: scale(1.05); }
         .project-badge {
             background: rgba(6, 182, 212, 0.1);
             color: var(--accent-cyan);
@@ -198,6 +217,45 @@
             margin-right: 4px;
             margin-bottom: 4px;
             display: inline-block;
+        }
+        /* Hueco para la captura de la Sede: si no existe proy-sede.jpg se ve este degradado */
+        .project-fallback {
+            min-height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0e7490 0%, #1e293b 70%);
+        }
+        .project-fallback > i {
+            position: absolute;
+            font-size: 4.5rem;
+            color: rgba(255,255,255,0.25);
+        }
+        .project-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0;
+        }
+        .project-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.45rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        .project-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-size: 0.8rem;
+            top: 0.2rem;
+        }
+        .featured-card {
+            border-color: rgba(6, 182, 212, 0.45);
+            box-shadow: 0 10px 30px -15px var(--accent-glow);
         }
 
         /* --- BUTTONS --- */
@@ -216,6 +274,55 @@
             color: var(--bg-dark);
             box-shadow: 0 0 20px var(--accent-glow);
         }
+        .btn-neon-solid {
+            background-color: var(--accent-cyan);
+            color: var(--bg-dark);
+        }
+        .btn-neon-sm { padding: 6px 18px; font-size: 0.85rem; }
+
+        /* --- CIFRAS --- */
+        .stat-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(6, 182, 212, 0.25);
+            border-radius: 12px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+            height: 100%;
+        }
+        .stat-num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            line-height: 1.2;
+        }
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        /* --- PRENSA --- */
+        .press-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-bottom: 1px dashed rgba(6, 182, 212, 0.6);
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+        .press-links a:hover { color: var(--accent-cyan); }
+
+        /* --- FORMACIÓN ACTUAL --- */
+        .now-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            border-radius: 20px;
+            padding: 2px 10px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
 
         footer {
             background-color: var(--bg-card);
@@ -228,7 +335,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px);">
         <div class="container">
             <a class="navbar-brand font-monospace text-cyan" href="#">&lt;GM /&gt;</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -237,6 +344,7 @@
                     <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                 </ul>
             </div>
         </div>
@@ -246,16 +354,22 @@
         <div class="container">
             <div class="row align-items-center flex-column-reverse flex-lg-row">
                 <div class="col-lg-7" data-aos="fade-right">
+                    <div class="hero-status"><span class="dot"></span> Disponible · incorporación inmediata</div>
                     <h1 class="display-3 fw-bold mb-3">Hola, soy <span class="text-cyan">Gonzalo Moreno</span></h1>
-                    <div class="typing-text mb-4" id="typing-text"></div>
-                    
+                    <div class="typing-text mb-4" id="typing-text" aria-live="off"></div>
+
                     <p class="lead text-secondary mb-5">
-                        Futuro Ingeniero Informático con visión global tras mi paso por la Warsaw University of Technology. 
-                        Combino solidez técnica Full Stack con la capacidad de adaptación y trabajo en equipos multiculturales.
+                        Ingeniero Informático por la UCLM. He desarrollado de principio a fin la nueva
+                        <strong class="text-white">Sede Electrónica del Ayuntamiento de Ciudad Real</strong>.
+                        Desarrollo Full Stack con Spring Boot y React, y ahora especializándome en
+                        <strong class="text-white">ciberseguridad</strong> con un máster en UNIR.
                     </p>
-                    <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-                        <a href="CV- GonzaloMorenoAntona.pdf?v=2" download class="btn btn-neon">
+                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                        <a href="CV-GonzaloMorenoAntona.pdf?v=3" download class="btn btn-neon">
                             <i class="fas fa-download me-2"></i>Descargar CV
+                        </a>
+                        <a href="#projects" class="btn btn-neon btn-neon-solid">
+                            <i class="fas fa-folder-open me-2"></i>Ver proyectos
                         </a>
                     </div>
                 </div>
@@ -263,6 +377,22 @@
                     <div class="profile-img-container">
                         <img src="FotoOrla.jpg" alt="Gonzalo Moreno" class="profile-img">
                     </div>
+                </div>
+            </div>
+
+            <!-- Cifras rápidas -->
+            <div class="row g-3 mt-5 stats-row" data-aos="fade-up">
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card"><div class="stat-num">9,5</div><div class="stat-label"><a href="TFG-GonzaloMorenoAntona.pdf" target="_blank" rel="noopener" class="text-reset">Nota del TFG <i class="fas fa-file-pdf ms-1"></i></a></div></div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card"><div class="stat-num"><i class="fas fa-circle-check"></i></div><div class="stat-label">Sede Electrónica terminada</div></div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card"><div class="stat-num"><i class="fas fa-newspaper"></i></div><div class="stat-label">Web solidaria en prensa</div></div>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <div class="stat-card"><div class="stat-num"><i class="fas fa-shield-halved"></i></div><div class="stat-label">Máster en Ciberseguridad</div></div>
                 </div>
             </div>
         </div>
@@ -274,25 +404,31 @@
                 <div class="col-lg-6 mb-5" data-aos="fade-up">
                     <h2 class="section-title">Sobre <span class="text-cyan">Mí</span></h2>
                     <p class="text-secondary text-justify mb-4">
-                        Soy un estudiante de último año de Ingeniería Informática apasionado por resolver problemas complejos mediante la tecnología. Mi enfoque va más allá del código: busco crear sistemas eficientes, seguros y que aporten valor real.
+                        Ingeniero Informático por la Universidad de Castilla-La Mancha, graduado en cuatro años con intensificación en Tecnologías de la Información. Me mueve resolver problemas reales con sistemas eficientes, seguros y que aporten valor a quien los usa.
                     </p>
                     <p class="text-secondary text-justify mb-4">
-                        Durante mi estancia Erasmus+ en Polonia, no solo perfeccioné mi inglés técnico, sino que desarrollé una gran capacidad para trabajar en entornos internacionales y adaptarme a metodologías ágiles cambiantes.
+                        Mis prácticas externas en el Ayuntamiento de Ciudad Real se convirtieron en mi TFG (<strong class="text-white">9,5/10</strong>): diseñé y desarrollé su nueva Sede Electrónica, ya terminada y entregada al Ayuntamiento, que la publicará cuando complete la renovación de sus servicios digitales. Del análisis de requisitos al servidor, pasando por la integración con los sistemas municipales.
                     </p>
-                    
+                    <p class="text-secondary text-justify mb-4">
+                        Ahora estoy cursando el <strong class="text-white">Máster Universitario en Ciberseguridad</strong> de UNIR, con doble titulación en el <strong class="text-white">Programa Superior Universitario en Ciberseguridad Inteligente</strong>, centrado en la IA aplicada a la detección de amenazas y la respuesta ante incidentes. Quiero sumar a mi perfil de desarrollador una base sólida en seguridad.
+                    </p>
+                    <p class="text-secondary text-justify mb-4">
+                        Durante mi Erasmus+ en Polonia, con todo el curso en inglés, gané autonomía y soltura para trabajar en entornos multiculturales.
+                    </p>
+
                     <h4 class="mt-5 mb-4 text-white"><i class="fas fa-globe text-cyan me-2"></i>Idiomas</h4>
-                    
+
                     <div class="skill-bar-container">
                         <div class="skill-title"><span>Español</span> <span>Nativo</span></div>
                         <div class="progress"><div class="progress-bar" style="width: 100%"></div></div>
                     </div>
                     <div class="skill-bar-container">
-                        <div class="skill-title"><span>Inglés (Fluidez Demostrada en Erasmus+)</span> <span>B1 / B2</span></div>
-                        <div class="progress"><div class="progress-bar" style="width: 70%"></div></div>
+                        <div class="skill-title"><span>Inglés (Erasmus+ en Varsovia)</span> <span>B1</span></div>
+                        <div class="progress"><div class="progress-bar" style="width: 50%"></div></div>
                     </div>
                     <div class="skill-bar-container">
                         <div class="skill-title"><span>Francés</span> <span>B1</span></div>
-                        <div class="progress"><div class="progress-bar" style="width: 30%"></div></div>
+                        <div class="progress"><div class="progress-bar" style="width: 50%"></div></div>
                     </div>
                 </div>
 
@@ -304,15 +440,15 @@
                         <i class="fas fa-users fa-2x text-cyan"></i>
                         <div>
                             <h5 class="mb-1 text-white">Trabajo en Equipo</h5>
-                            <small class="text-secondary">Experiencia colaborando en proyectos académicos y grupos internacionales.</small>
+                            <small class="text-secondary">Proyectos en equipo en la universidad y en grupos internacionales durante el Erasmus+.</small>
                         </div>
                     </div>
-                    
+
                     <div class="soft-skill-item">
                         <i class="fas fa-brain fa-2x text-cyan"></i>
                         <div>
                             <h5 class="mb-1 text-white">Resolución de Problemas</h5>
-                            <small class="text-secondary">Enfoque analítico y lógico para descomponer retos complejos en soluciones viables.</small>
+                            <small class="text-secondary">Enfoque analítico para descomponer retos complejos en soluciones viables, como sacar adelante un sistema real para una administración pública.</small>
                         </div>
                     </div>
 
@@ -320,7 +456,7 @@
                         <i class="fas fa-sync-alt fa-2x text-cyan"></i>
                         <div>
                             <h5 class="mb-1 text-white">Adaptabilidad</h5>
-                            <small class="text-secondary">Capacidad demostrada para integrarme rápidamente en nuevos entornos y stacks tecnológicos.</small>
+                            <small class="text-secondary">Me integro rápido en nuevos entornos, equipos y stacks tecnológicos.</small>
                         </div>
                     </div>
 
@@ -328,7 +464,7 @@
                         <i class="fas fa-rocket fa-2x text-cyan"></i>
                         <div>
                             <h5 class="mb-1 text-white">Proactividad</h5>
-                            <small class="text-secondary">Iniciativa constante para aprender nuevas herramientas (Docker, Kali Linux) por mi cuenta.</small>
+                            <small class="text-secondary">Iniciativa constante para aprender nuevas herramientas (Docker, Kali Linux, nginx) por mi cuenta.</small>
                         </div>
                     </div>
                 </div>
@@ -340,30 +476,39 @@
         <div class="container py-5">
             <h2 class="section-title text-center w-100">¿Qué puedo <span class="text-cyan">hacer?</span></h2>
             <div class="row g-4 mt-3">
-                <div class="col-md-4" data-aos="fade-up">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up">
                     <div class="tech-card text-center">
                         <div class="service-icon mx-auto"><i class="fas fa-code"></i></div>
                         <h4>Desarrollo Full Stack</h4>
                         <p class="text-secondary mt-3">
-                            Creación de aplicaciones web robustas desde el backend (Spring Boot) hasta interfaces modernas en Angular. Integración de APIs y bases de datos.
+                            Aplicaciones web de extremo a extremo: API REST con Spring Boot (Java 21), interfaces en React o Angular y bases de datos MySQL. Integración con sistemas externos.
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
                     <div class="tech-card text-center">
                         <div class="service-icon mx-auto"><i class="fas fa-server"></i></div>
-                        <h4>Sistemas & DevOps</h4>
+                        <h4>Despliegue & Sistemas</h4>
                         <p class="text-secondary mt-3">
-                            Despliegue de aplicaciones en contenedores Docker, gestión de entornos Linux y configuración de redes y seguridad básica.
+                            Puesta en producción en servidores Ubuntu con nginx y HTTPS, entornos Docker y Linux, con el foco puesto en seguridad (ENS) e interoperabilidad (ENI).
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tech-card text-center">
+                        <div class="service-icon mx-auto"><i class="fas fa-shield-halved"></i></div>
+                        <h4>Ciberseguridad</h4>
+                        <p class="text-secondary mt-3">
+                            Bastionado de sistemas, análisis de vulnerabilidades, forense y respuesta ante incidentes, gobierno y análisis de riesgos (ISO 27001) y desarrollo seguro.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
                     <div class="tech-card text-center">
                         <div class="service-icon mx-auto"><i class="fas fa-laptop-code"></i></div>
                         <h4>Digitalización Web</h4>
                         <p class="text-secondary mt-3">
-                            Consultoría e implantación de CMS como WordPress para asociaciones y negocios. Optimización y configuración de plugins.
+                            Webs accesibles (WCAG 2.1 AA) y adaptadas a cualquier dispositivo, y CMS como WordPress para asociaciones y negocios.
                         </p>
                     </div>
                 </div>
@@ -383,8 +528,26 @@
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
                     <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fas fa-leaf fa-3x text-success mb-3"></i>
+                        <h5>Spring Boot</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fab fa-react fa-3x text-info mb-3"></i>
+                        <h5>React</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
                         <i class="fab fa-angular fa-3x text-danger mb-3"></i>
                         <h5>Angular</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fab fa-js fa-3x text-warning mb-3"></i>
+                        <h5>TypeScript</h5>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
@@ -401,14 +564,32 @@
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
                     <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fab fa-linux fa-3x text-white mb-3"></i>
+                        <h5>Linux</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fas fa-network-wired fa-3x text-success mb-3"></i>
+                        <h5>nginx</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
                         <i class="fab fa-python fa-3x text-info mb-3"></i>
                         <h5>Python</h5>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2">
                     <div class="tech-card text-center p-3 justify-content-center">
-                        <i class="fab fa-linux fa-3x text-white mb-3"></i>
-                        <h5>Linux</h5>
+                        <i class="fab fa-git-alt fa-3x text-danger mb-3"></i>
+                        <h5>Git</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="tech-card text-center p-3 justify-content-center">
+                        <i class="fab fa-wordpress fa-3x text-primary mb-3"></i>
+                        <h5>WordPress</h5>
                     </div>
                 </div>
             </div>
@@ -420,18 +601,30 @@
             <h2 class="section-title">Mi <span class="text-cyan">Trayectoria</span></h2>
             <div class="timeline">
                 <div class="timeline-item" data-aos="fade-left">
+                    <span class="text-cyan fw-bold">Nov 2026 - Actualidad</span><span class="now-badge">Cursando</span>
+                    <h4 class="mt-2 text-white">Máster Universitario en Ciberseguridad</h4>
+                    <p class="text-secondary mb-0">UNIR · Universidad Internacional de La Rioja</p>
+                    <small class="timeline-desc">Doble titulación con el Programa Superior Universitario en Ciberseguridad Inteligente (IA aplicada a la detección de amenazas, automatización de la respuesta ante incidentes y ataques potenciados por IA). Asignaturas: forense y respuesta ante incidentes, gobierno y análisis de riesgos, seguridad en sistemas y aplicaciones, hacking ético, desarrollo seguro y ciberinteligencia.</small>
+                </div>
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                    <span class="text-cyan fw-bold">Feb - Jun 2026</span>
+                    <h4 class="mt-2 text-white">Prácticas externas y TFG · Sede Electrónica</h4>
+                    <p class="text-secondary mb-0">Ayuntamiento de Ciudad Real</p>
+                    <small class="timeline-desc">Desarrollo completo de la nueva Sede Electrónica, del diseño a la entrega (Spring Boot, React, MySQL, nginx). TFG calificado con 9,5/10. <a href="TFG-GonzaloMorenoAntona.pdf" target="_blank" rel="noopener" class="text-cyan">Leer el TFG <i class="fas fa-arrow-up-right-from-square small"></i></a></small>
+                </div>
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
+                    <span class="text-cyan fw-bold">2022 - 2026</span>
+                    <h4 class="mt-2 text-white">Grado en Ingeniería Informática</h4>
+                    <p class="text-secondary mb-0">Universidad de Castilla-La Mancha (UCLM) · ESI Ciudad Real</p>
+                    <small class="timeline-desc">Graduado en 4 años. Intensificación en Tecnologías de la Información: desarrollo web Full Stack, bases de datos, sistemas y seguridad.</small>
+                </div>
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
                     <span class="text-cyan fw-bold">2024 - 2025</span>
                     <h4 class="mt-2 text-white">Erasmus+ International Experience</h4>
                     <p class="text-secondary mb-0">Warsaw University of Technology (Polonia)</p>
-                    <small class="timeline-desc">Adaptación a entornos multiculturales, trabajo en equipo en inglés y metodologías ágiles.</small>
+                    <small class="timeline-desc">Curso académico íntegramente en inglés. Adaptación a entornos multiculturales y trabajo en equipo internacional.</small>
                 </div>
-                <div class="timeline-item" data-aos="fade-left" data-aos-delay="100">
-                    <span class="text-cyan fw-bold">2022 - Actualidad</span>
-                    <h4 class="mt-2 text-white">Grado en Ingeniería Informática</h4>
-                    <p class="text-secondary mb-0">Universidad de Castilla-La Mancha (UCLM)</p>
-                    <small class="timeline-desc">Especialidad en Tecnologías de la Información (TI). Desarrollo Web Full Stack.</small>
-                </div>
-                <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                <div class="timeline-item" data-aos="fade-left" data-aos-delay="300">
                     <span class="text-cyan fw-bold">2020 - 2022</span>
                     <h5 class="mt-2 text-white">Bachillerato Científico-Tecnológico</h5>
                     <p class="text-secondary">I.E.S. Torreón del Alcázar</p>
@@ -443,24 +636,68 @@
     <section class="py-5 bg-card" id="projects" style="background-color: #162032;">
         <div class="container py-5">
             <h2 class="section-title">Proyectos <span class="text-cyan">Destacados</span></h2>
-            
+
             <div class="row g-4">
-                
+
+                <!-- SEDE ELECTRÓNICA (destacado) -->
                 <div class="col-lg-12" data-aos="fade-up">
+                    <div class="tech-card featured-card">
+                        <div class="row align-items-center">
+                            <div class="col-md-5 mb-4 mb-md-0">
+                                <div class="project-img-wrapper">
+                                    <img src="proy-sede.jpg" alt="Portada de la Sede Electrónica del Ayuntamiento de Ciudad Real" class="project-img">
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                                    <h3 class="h4 mb-0 text-white"><i class="fas fa-landmark text-cyan me-2"></i> Sede Electrónica · Ayuntamiento de Ciudad Real</h3>
+                                    <span class="badge bg-info text-dark"><i class="fas fa-circle-check me-1"></i>Terminada · Pendiente de publicación</span>
+                                </div>
+                                <p class="text-secondary mb-0">
+                                    Nueva sede electrónica del Ayuntamiento, desarrollada de principio a fin durante mis prácticas externas y presentada como TFG (<strong class="text-white">9,5/10</strong>). Sustituirá a la sede actual, con diseño desactualizado y contenidos gestionados a mano. El proyecto está terminado y entregado; saldrá en producción cuando el Ayuntamiento complete la renovación de sus áreas digitales.
+                                </p>
+                                <ul class="project-list">
+                                    <li>Arquitectura desacoplada: API REST con Spring Boot (Java 21), SPA en React y MySQL.</li>
+                                    <li>Sincronización automática con el gestor de expedientes DipucrTramita mediante modelo Push.</li>
+                                    <li>Buscador global con filtros por área, alertas y suscripciones por correo, y agregador de noticias.</li>
+                                    <li>Módulos de Procesos Selectivos, Plenos, Convenios y Subvenciones, con integración con SIGEM, Power BI y Matomo.</li>
+                                    <li>Cumple WCAG 2.1 AA, ENS y ENI. Preparada para desplegarse en Ubuntu con nginx y HTTPS.</li>
+                                </ul>
+                                <div class="mt-3">
+                                    <span class="project-badge">Spring Boot</span>
+                                    <span class="project-badge">Java 21</span>
+                                    <span class="project-badge">React</span>
+                                    <span class="project-badge">MySQL</span>
+                                    <span class="project-badge">nginx</span>
+                                    <span class="project-badge">Ubuntu</span>
+                                    <span class="project-badge">WCAG · ENS · ENI</span>
+                                </div>
+                                <div class="mt-3 d-flex flex-wrap gap-2">
+                                    <a href="TFG-GonzaloMorenoAntona.pdf" target="_blank" rel="noopener" class="btn btn-neon btn-neon-solid btn-neon-sm">
+                                        <i class="fas fa-file-pdf me-2"></i>Leer el TFG (PDF)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LA GRAMOLA -->
+                <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
                     <div class="tech-card">
                         <div class="row align-items-center">
                             <div class="col-md-5 mb-4 mb-md-0">
                                 <div class="project-img-wrapper">
-                                    <img src="proy-gramola.jpg" alt="La Gramola" class="project-img" onerror="this.src='https://via.placeholder.com/800x500/06b6d4/ffffff?text=Captura+La+Gramola'">
+                                    <img src="proy-gramola.jpg" alt="La Gramola" class="project-img">
                                 </div>
                             </div>
                             <div class="col-md-7">
                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                     <h3 class="h4 mb-0 text-white"><i class="fas fa-music text-cyan me-2"></i> La Gramola</h3>
-                                    <span class="badge bg-warning text-dark">En Desarrollo</span>
+                                    <span class="badge bg-secondary">Proyecto universitario</span>
                                 </div>
                                 <p class="text-secondary">
-                                    Plataforma web para gestión musical en establecimientos comerciales. Permite a los usuarios interactuar con la música del local mediante pagos seguros. 
+                                    Plataforma web para gestión musical en establecimientos comerciales. Permite a los usuarios interactuar con la música del local mediante pagos seguros.
                                     <strong>Incluye entorno de pruebas automatizado con Selenium.</strong>
                                 </p>
                                 <div class="mt-3">
@@ -474,41 +711,60 @@
                     </div>
                 </div>
 
+                <!-- WEB ASOCIACIÓN IKER -->
                 <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
                     <div class="tech-card">
                         <div class="row align-items-center">
                             <div class="col-md-5 mb-4 mb-md-0">
                                 <div class="project-img-wrapper">
-                                    <img src="proy-iker.jpg" alt="Web Asociación Iker" class="project-img" onerror="this.src='https://via.placeholder.com/800x500/3b82f6/ffffff?text=Web+Asociacion'">
+                                    <img src="proy-iker.jpg" alt="Web Asociación Iker" class="project-img">
                                 </div>
                             </div>
                             <div class="col-md-7">
-                                <div class="d-flex justify-content-between align-items-start mb-3">
-                                    <h4 class="h5 mb-0 text-white">Web Asociación Iker</h4>
-                                    <span class="badge bg-warning text-dark">En Desarrollo</span>
+                                <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+                                    <h3 class="h4 mb-0 text-white"><i class="fas fa-hand-holding-heart text-cyan me-2"></i> Web Asociación Iker</h3>
+                                    <span class="badge bg-info text-dark"><i class="fas fa-newspaper me-1"></i>En prensa</span>
                                 </div>
                                 <p class="text-secondary">
-                                    Implantación y personalización de sitio web con <strong>WordPress</strong>. Configuración de plugins y CMS para una asociación real.
+                                    Nueva web oficial de la Asociación Iker, entidad sin ánimo de lucro que impulsa la investigación del liposarcoma mixoide y los cuidados paliativos. La desarrollamos de forma altruista un equipo de cinco estudiantes de la ESI, en la asignatura de Comercio Electrónico de la UCLM.
                                 </p>
+                                <ul class="project-list">
+                                    <li>Nuestra propuesta fue la elegida entre una decena de proyectos presentados en la asignatura.</li>
+                                    <li>Donaciones, alta de socios, tienda solidaria con carrito y voluntariado.</li>
+                                    <li>Transparencia: fondos destinados a investigación, balance económico y estatutos.</li>
+                                    <li>Presentada oficialmente en la ESI en octubre de 2026 y recogida por varios medios.</li>
+                                </ul>
                                 <div class="mt-3">
                                     <span class="project-badge">WordPress</span>
-                                    <span class="project-badge">CMS / Plugins</span>
+                                    <span class="project-badge">E-commerce</span>
+                                    <span class="project-badge">Trabajo en equipo</span>
+                                </div>
+                                <div class="press-links mt-3">
+                                    <i class="fas fa-newspaper text-cyan me-2"></i>
+                                    <a href="https://www.lanzadigital.com/provincia/ciudad-real/estudiantes-de-la-escuela-superior-de-informatica-de-ciudad-real-desarrollan-la-web-de-la-asociacion-iker/" target="_blank" rel="noopener">Lanza</a>
+                                    <a href="https://www.lacerca.com/noticias/universidad/estudiantes-escuela-superior-real-nueva-web-asociacion-iker-835072-1.html" target="_blank" rel="noopener">La Cerca</a>
+                                    <a href="https://objetivocastillalamancha.es/ciudad-real/educacion/cinco-estudiantes-uclm-crean-web-impulsar-labor-asociacion-iker" target="_blank" rel="noopener">Objetivo CLM</a>
+                                    <a href="https://novaciencia.es/cinco-estudiantes-de-la-uclm-crean-una-web-solidaria-para-la-asociacion-iker" target="_blank" rel="noopener">Novaciencia</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- REPRODUCTOR -->
                 <div class="col-lg-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="tech-card">
                         <div class="row align-items-center">
                             <div class="col-md-5 mb-4 mb-md-0">
                                 <div class="project-img-wrapper">
-                                    <img src="proy-player.jpg" alt="Reproductor Multimedia Web" class="project-img" onerror="this.src='https://via.placeholder.com/800x500/10b981/ffffff?text=Reproductor+Web'">
+                                    <img src="proy-player.jpg" alt="Reproductor Multimedia Web" class="project-img">
                                 </div>
                             </div>
                             <div class="col-md-7">
-                                <h4 class="h5 mb-3 text-white">Reproductor Multimedia Web</h4>
+                                <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+                                    <h4 class="h5 mb-0 text-white">Reproductor Multimedia Web</h4>
+                                    <span class="badge bg-secondary">Proyecto universitario</span>
+                                </div>
                                 <p class="text-secondary">
                                     Aplicación web interactiva (SPA) para la gestión y reproducción de contenido multimedia. Interfaz moderna y responsive.
                                 </p>
@@ -521,12 +777,13 @@
                     </div>
                 </div>
 
+                <!-- PORTFOLIO -->
                 <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
                     <div class="tech-card">
                         <div class="row align-items-center">
                             <div class="col-md-5 mb-4 mb-md-0">
                                 <div class="project-img-wrapper">
-                                    <img src="proy-portfolio.jpg?v=2" alt="Portfolio Web Personal" class="project-img" onerror="this.src='https://via.placeholder.com/800x500/6366f1/ffffff?text=Mi+Portfolio'">
+                                    <img src="proy-portfolio.jpg?v=2" alt="Portfolio Web Personal" class="project-img">
                                 </div>
                             </div>
                             <div class="col-md-7">
@@ -547,16 +804,17 @@
         </div>
     </section>
 
-    <footer class="py-5 text-center">
+    <footer class="py-5 text-center" id="contact">
         <div class="container">
             <h2 class="mb-4">Contacta conmigo.</h2>
-            <p class="text-secondary mb-4">Estoy disponible para nuevas oportunidades y retos tecnológicos.</p>
+            <p class="text-secondary mb-2">Disponible para incorporación inmediata. Residencia en Ciudad Real.</p>
+            <p class="text-secondary mb-4">Si buscas a alguien que pueda aportar desde el primer día, hablemos.</p>
             <div class="d-flex justify-content-center gap-4 mb-5">
-                <a href="mailto:gmorenoantona@gmail.com" class="text-white fs-2"><i class="fas fa-envelope"></i></a>
-                <a href="https://linkedin.com/in/gonzalo-moreno-antona" target="_blank" class="text-white fs-2"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/GonzaloMorenoAntona" target="_blank" class="text-white fs-2"><i class="fab fa-github"></i></a>
+                <a href="mailto:gmorenoantona@gmail.com" class="text-white fs-2" aria-label="Correo"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/gonzalo-moreno-antona" target="_blank" rel="noopener" class="text-white fs-2" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/GonzaloMorenoAntona" target="_blank" rel="noopener" class="text-white fs-2" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
-            <p class="text-secondary small">&copy; 2025 Gonzalo Moreno Antona. Diseñado con Bootstrap & Code.</p>
+            <p class="text-secondary small">&copy; 2026 Gonzalo Moreno Antona. Diseñado con Bootstrap & Code.</p>
         </div>
     </footer>
 
@@ -566,7 +824,7 @@
         AOS.init({ duration: 1000, once: true });
 
         const textElement = document.getElementById('typing-text');
-        const texts = ["Ingeniero Informático.", "Especialidad TI.", "Full Stack Developer.", "Gonzalo Moreno Antona."];
+        const texts = ["Ingeniero Informático.", "Full Stack Developer.", "Spring Boot · React.", "Ciberseguridad.", "Gonzalo Moreno Antona."];
         let textIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
